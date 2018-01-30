@@ -10,7 +10,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<form class="" action="http://localhost/uoc/index.php/graduate/add" method="post">
+					<form class="" action="http://localhost/uoc/index.php/graduate/add" method="post" autocomplete="off">
 						<div class="form-group">
 							<label for="year">ปีที่ส่งข้อมูล</label>
 							<input class="form-control" type="text" name="year" value="2561" maxlength="4" placeholder="ปีที่ส่งข้อมูล" required autofocus>
@@ -23,12 +23,12 @@
 
 						<div class="form-group">
 							<label for="citizen_id">รหัสประจำตัวประชาชน</label>
-							<input class="form-control" type="text" name="citizen_id" value="" maxlength="13" placeholder="รหัสประจำตัวประชาชน" required>
+							<input class="form-control" type="text" name="citizen_id" value="" maxlength="13" placeholder="รหัสประจำตัวประชาชน" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="std_id">รหัสนักศึกษา</label>
-							<input class="form-control" type="text" name="std_id" value="" maxlength="13" placeholder="รหัสนักศึกษา" required>
+							<input class="form-control" type="text" name="std_id" value="" maxlength="13" placeholder="รหัสนักศึกษา" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -42,17 +42,17 @@
 
 						<div class="form-group">
 							<label for="std_fname">ชื่อนักศึกษา</label>
-							<input class="form-control" type="text" name="std_fname" value="" maxlength="50" placeholder="ชื่อนักศึกษา" required>
+							<input class="form-control" type="text" name="std_fname" value="" maxlength="50" placeholder="ชื่อนักศึกษา" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="std_mname">ชื่อกลาง(ถ้ามี)</label>
-							<input class="form-control" type="text" name="std_mname" value="-" maxlength="80" placeholder="ชื่อกลาง(ถ้ามี)">
+							<input class="form-control" type="text" name="std_mname" value="-" maxlength="80" placeholder="ชื่อกลาง(ถ้ามี)" autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="std_lname">นามสกุล</label>
-							<input class="form-control" type="text" name="std_lname" value="" maxlength="50" placeholder="นามสกุล" required>
+							<input class="form-control" type="text" name="std_lname" value="" maxlength="50" placeholder="นามสกุล" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -65,7 +65,7 @@
 
 						<div class="form-group">
 							<label for="birthday">วันเดือนปีเกิด(พ.ศ) DD/MM/YYY</label>
-							<input class="form-control" type="text" name="birthday" value="" maxlength="10" placeholder="12/02/2529" required>
+							<input class="form-control" type="text" name="birthday" value="" maxlength="10" placeholder="12/02/2529" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -81,32 +81,32 @@
 
 						<div class="form-group">
 							<label for="house_id">เลขรหัสประจำบ้าน</label>
-							<input class="form-control" type="text" name="house_id" value="" maxlength="11" placeholder="เลขรหัสประจำบ้าน" required>
+							<input class="form-control" type="text" name="house_id" value="" maxlength="11" placeholder="เลขรหัสประจำบ้าน" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="house_number">เลขที่บ้าน</label>
-							<input class="form-control" type="text" name="house_number" value="" maxlength="10" placeholder="เลขที่บ้าน" required>
+							<input class="form-control" type="text" name="house_number" value="" maxlength="10" placeholder="เลขที่บ้าน" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="houseadd_name">ชื่อที่อยู่</label>
-							<input class="form-control" type="text" name="houseadd_name" value="-" maxlength="80" placeholder="ชื่อที่อยู่" required>
+							<input class="form-control" type="text" name="houseadd_name" value="-" maxlength="80" placeholder="ชื่อที่อยู่" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="moo">หมู่</label>
-							<input class="form-control" type="text" name="moo" value="-" maxlength="4" placeholder="หมู่" required>
+							<input class="form-control" type="text" name="moo" value="-" maxlength="4" placeholder="หมู่" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="soi">ตรอก/ซอย</label>
-							<input class="form-control" type="text" name="soi" value="-" maxlength="80" placeholder="ตรอก/ซอย" required>
+							<input class="form-control" type="text" name="soi" value="-" maxlength="80" placeholder="ตรอก/ซอย" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="street">ถนน</label>
-							<input class="form-control" type="text" name="street" value="-" maxlength="80" placeholder="ถนน" required>
+							<input class="form-control" type="text" name="street" value="-" maxlength="80" placeholder="ถนน" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -140,12 +140,12 @@
 -->
 						<div class="form-group">
 							<label for="telephone">หมายเลขโทรศัพท์</label>
-							<input class="form-control" type="text" name="telephone" value="" maxlength="30" placeholder="หมายเลขโทรศัพท์" required>
+							<input class="form-control" type="text" name="telephone" value="" maxlength="30" placeholder="หมายเลขโทรศัพท์" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="zipcode">รหัสไปรษณีย์</label>
-							<input class="form-control" type="text" name="zipcode" value="" maxlength="5" placeholder="รหัสไปรษณีย์" required>
+							<input class="form-control" type="text" name="zipcode" value="" maxlength="5" placeholder="รหัสไปรษณีย์" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -174,7 +174,7 @@
 
 						<div class="form-group">
 							<label for="email">อีเมล</label>
-							<input class="form-control" type="email" name="email" value="" maxlength="50" placeholder="อีเมล" required>
+							<input class="form-control" type="email" name="email" value="" maxlength="50" placeholder="อีเมล" required autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -202,20 +202,20 @@
 
 						<div class="form-group">
 							<label for="passport_number">เลขที่หนังสือเดินทาง</label>
-							<input class="form-control" type="text" name="passport_number" value="-" maxlength="20" placeholder="เลขที่หนังสือเดินทาง">
+							<input class="form-control" type="text" name="passport_number" value="-" maxlength="20" placeholder="เลขที่หนังสือเดินทาง" autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="passport_startdate">วันที่ออกหนังสือเดินทาง(ค.ศ) DD/MM/YYYY</label>
-							<input class="form-control" type="text" name="passport_startdate" value="-" maxlength="10" placeholder="30/09/2016">
+							<input class="form-control" type="text" name="passport_startdate" value="-" maxlength="10" placeholder="30/09/2016" autocomplete="off">
 						</div>
 
 						<div class="form-group">
 							<label for="passport_enddate">วันหมดอายุของหนังสือเดินทาง(ค.ศ) DD/MM/YYYY</label>
-							<input class="form-control" type="text" name="passport_enddate" value="-" maxlength="10" placeholder="30/09/2021">
+							<input class="form-control" type="text" name="passport_enddate" value="-" maxlength="10" placeholder="30/09/2021" autocomplete="off">
 						</div>
 
-						<button type="submit" class="btn btn-default" value="Submit">Submit</button>
+						<button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 					</form>
 				</div>
 			</div>
