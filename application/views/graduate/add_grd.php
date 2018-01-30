@@ -56,6 +56,21 @@
 						</div>
 
 						<div class="form-group">
+							<label for="std_fname">First Name</label>
+							<input class="form-control" type="text" name="eng_fname" value="" maxlength="50" placeholder="ชื่อนักศึกษา ภาษาอังกฤษ" required autocomplete="off">
+						</div>
+
+						<div class="form-group">
+							<label for="std_mname">Middle Name</label>
+							<input class="form-control" type="text" name="eng_mname" value="-" maxlength="80" placeholder="ชื่อกลาง(ถ้ามี) ภาษาอังกฤษ" autocomplete="off">
+						</div>
+
+						<div class="form-group">
+							<label for="std_lname">Last Name</label>
+							<input class="form-control" type="text" name="eng_lname" value="" maxlength="50" placeholder="นามสกุล ภาษาอังกฤษ" required autocomplete="off">
+						</div>
+
+						<div class="form-group">
 							<label for="gender_id">รหัสเพศ</label>
 							<select class="form-control" name="gender_id" required>
 							  <option value="1">ชาย</option>

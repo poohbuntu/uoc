@@ -82,6 +82,9 @@ public function getAllgrd()
       'passport_number'=>$this->input->post('passport_number'),
       'passport_startdate'=>$this->input->post('passport_startdate'),
       'passport_enddate'=>$this->input->post('passport_enddate'),
+      'eng_fname'=>$this->input->post('eng_fname'),
+      'eng_mname'=>$this->input->post('eng_mname'),
+      'eng_lname'=>$this->input->post('eng_lname'),
 
     );
     $this->db->insert('uoc_graduate', $data);
