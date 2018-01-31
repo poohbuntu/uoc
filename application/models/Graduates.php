@@ -69,6 +69,8 @@ public function getAllgrd()
       'moo'=>$this->input->post('moo'),
       'soi'=>$this->input->post('soi'),
       'street'=>$this->input->post('street'),
+      'province_id'=>$this->input->post('province'),
+      'district_id'=>$this->input->post('district'),
       'sub_district_id'=>$this->input->post('sub_district_id'),
       'telephone'=>$this->input->post('telephone'),
       'zipcode'=>$this->input->post('zipcode'),
