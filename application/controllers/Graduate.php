@@ -49,8 +49,12 @@ class Graduate extends CI_Controller {
 	public function addform()
 	{
 		$data['provinces'] = $this->Graduates->getAllProvince();
-		$data['districts'] = $this->Graduates->getDistrict();
-		$data['sub_districts'] = $this->Graduates->getSubDistrict();
+		//$data['districts'] = $this->Graduates->getDistrict();
+		//$data['sub_districts'] = $this->Graduates->getSubDistrict();
+		$data['univs'] = $this->Graduates->getAllUniv();
+		$data['genders'] = $this->Graduates->getAllGender();
+		$data['facs'] = $this->Graduates->getAllFac();
+
 		$this->load->view('/graduate/add_grd', $data);
 	}
 

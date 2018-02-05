@@ -16,9 +16,17 @@
 							<input class="form-control" type="text" name="year" value="2561" maxlength="4" placeholder="ปีที่ส่งข้อมูล" required autofocus>
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="univ_id">รหัสสถานศึกษา</label>
 							<input class="form-control" type="text" name="univ_id" value="21200" maxlength="5" placeholder="จุฬาลงกรณ์มหาวิทยาลัย"  required>
+						</div>-->
+						<div class="form-group">
+							<label for="gender_id">สถานศึกษา</label>
+							<select class="form-control" name="univ_id" required>
+								<?php foreach($univs->result() as $univ){ ?>
+        					<option value="<?php echo $univ->UNIV_ID; ?>"><?php echo $univ->UNIV_NAME_TH; ?></option>
+    						<?php } ?>
+							</select>
 						</div>
 
 						<div class="form-group">
@@ -32,7 +40,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="prefix_name_id">รหัสคำนำหน้าชื่อ</label>
+							<label for="prefix_name_id">คำนำหน้าชื่อ</label>
 							<select class="form-control" name="prefix_name_id" required>
 							  <option value="003">นาย</option>
 							  <option value="004">นางสาว</option>
@@ -71,10 +79,12 @@
 						</div>
 
 						<div class="form-group">
-							<label for="gender_id">รหัสเพศ</label>
+							<label for="gender_id">เพศ</label>
 							<select class="form-control" name="gender_id" required>
-							  <option value="1">ชาย</option>
-							  <option value="2">หญิง</option>
+								<option value="">เลือก</option>
+								<?php foreach($genders->result() as $gender){ ?>
+        					<option value="<?php echo $gender->GENDER_ID; ?>"><?php echo $gender->GENDER_NAME; ?></option>
+    						<?php } ?>
 							</select>
 						</div>
 
@@ -83,9 +93,17 @@
 							<input class="form-control" type="text" name="birthday" value="" maxlength="10" placeholder="12/02/2529" required autocomplete="off">
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="fac_id">รหัสคณะที่ศึกษา</label>
 							<input class="form-control" type="text" name="fac_id" value="00048" maxlength="5" placeholder="คณะพยาบาลศาสตร์"  required>
+						</div>-->
+						<div class="form-group">
+							<label for="gender_id">คณะที่ศึกษา</label>
+							<select class="form-control" name="fac_id" required>
+								<?php foreach($facs->result() as $fac){ ?>
+        					<option value="<?php echo $fac->FAC_ID; ?>"><?php echo $fac->FAC_NAME; ?></option>
+    						<?php } ?>
+							</select>
 						</div>
 
 						<div class="form-group">
@@ -164,7 +182,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="race_id">รหัสเชื้อชาติ</label>
+							<label for="race_id">เชื้อชาติ</label>
 							<select class="form-control" name="race_id" required>
 							  <option value="099">ไทย</option>
 							  <option value="994">อื่นๆ</option>
@@ -172,7 +190,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="religion_id">รหัสศาสนา</label>
+							<label for="religion_id">ศาสนา</label>
 							<select class="form-control" name="religion_id" required>
 							  <option value="00">ไม่นับถือศาสนาใด</option>
 							  <option value="01">ศาสนาพุทธ</option>
@@ -197,18 +215,18 @@
 							<input class="form-control" type="text" name="dategraduation" value="24/04/2561" maxlength="10" placeholder="08/06/2560" required>
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="curr_id">รหัสหลักสูตรที่สำเร็จการศึกษา</label>
 							<input class="form-control" type="text" name="curr_id" value="25322121100124" maxlength="14" placeholder="หลักสูตรพยาบาลศาสตรบัณฑิต วิทยาลัยพยาบาลตำรวจ สถาบันสมทบจุฬาลงกรณ์มหาวิทยาลัย"  required>
-						</div>
+						</div>-->
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="degree_num">ลำดับของปริญญาในหลักสูตร</label>
 							<input class="form-control" type="text" name="degree_num" value="1" maxlength="1" placeholder="พยาบาลศาสตรบัณฑิต"  required>
-						</div>
+						</div>-->
 
 						<div class="form-group">
-							<label for="nation_id">รหัสสัญชาติ</label>
+							<label for="nation_id">สัญชาติ</label>
 							<select class="form-control" name="nation_id" required>
 							  <option value="TH">THAILAND</option>
 							  <option value="XX">ไม่มีสัญชาติ</option>
