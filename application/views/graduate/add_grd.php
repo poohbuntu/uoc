@@ -236,27 +236,27 @@
 			</div>
 		</div>
 	<script type="text/javascript">
-	  jQuery(function($) {
-	      jQuery('body').on('change','#province',function(){
-	          jQuery.ajax({
+	  $(function() {
+	      $('body').on('change','#province',function(){
+	          $.ajax({
 	              'type':'POST',
 	              'url':'http://localhost/uoc/index.php/graduate/get_district',
 	              'cache':false,
-	              'data':{province:jQuery(this).val()},
+	              'data':{province:$(this).val()},
 	              'success':function(html){
-	                  jQuery("#district").html(html);
+	                  $("#district").html(html);
 	              }
 	          });
 	          return false;
 	      });
-	       jQuery('body').on('change','#district',function(){
-	          jQuery.ajax({
+	       $('body').on('change','#district',function(){
+	          $.ajax({
 	              'type':'POST',
 	              'url':'http://localhost/uoc/index.php/graduate/get_sub_district_id',
 	              'cache':false,
-	              'data':{district:jQuery(this).val()},
+	              'data':{district:$(this).val()},
 	              'success':function(html){
-	                  jQuery("#sub_district_id").html(html);
+	                  $("#sub_district_id").html(html);
 	              }
 	          });
 	          return false;
