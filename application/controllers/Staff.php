@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Graduate extends CI_Controller {
+class Staff extends CI_Controller {
 
 	public function __construct()
   {
       parent::__construct();
-      $this->load->model('Graduates');
+      $this->load->model('Staffs');
   }
 
 	public function index()
 	{
-		$data['graduate'] = $this->Graduates->getAllgrd()->result();
-		$this->load->view('/graduate/index', $data);
+		$data['staff'] = $this->Staffs->getAllstaff()->result();
+		$this->load->view('/staff/index', $data);
 	}
 
 	public function get_district()
@@ -46,25 +46,25 @@ class Graduate extends CI_Controller {
 		}
 	}
 
-	public function add_grd()
+	public function add_staff()
 	{
-		$data['provinces'] = $this->Graduates->getAllProvince();
-		//$data['districts'] = $this->Graduates->getDistrict();
-		//$data['sub_districts'] = $this->Graduates->getSubDistrict();
-		$data['univs'] = $this->Graduates->getAllUniv();
-		$data['genders'] = $this->Graduates->getAllGender();
-		$data['races'] = $this->Graduates->getAllRace();
-		$data['religions'] = $this->Graduates->getAllReligion();
-		$data['facs'] = $this->Graduates->getAllFac();
-		$data['nations'] = $this->Graduates->getAllNation();
+		$data['provinces'] = $this->Staffs->getAllProvince();
+		//$data['districts'] = $this->Staffs->getDistrict();
+		//$data['sub_districts'] = $this->Staffs->getSubDistrict();
+		$data['univs'] = $this->Staffs->getAllUniv();
+		$data['genders'] = $this->Staffs->getAllGender();
+		$data['races'] = $this->Staffs->getAllRace();
+		$data['religions'] = $this->Staffs->getAllReligion();
+		$data['facs'] = $this->Staffs->getAllFac();
+		$data['nations'] = $this->Staffs->getAllNation();
 
-		$this->load->view('/graduate/add_form', $data);
+		$this->load->view('/staff/add_form', $data);
 	}
 
 	public function add()
   {
-    $this->Graduates->addGraduate();
-    $this->load->view('graduate/end');
+    $this->Staffs->addStaff();
+    $this->load->view('staff/end');
   }
 
 }

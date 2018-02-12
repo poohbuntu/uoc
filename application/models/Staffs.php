@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Graduates extends CI_Model{
+class Staffs extends CI_Model{
 
   public function __construct()
   {
@@ -81,36 +81,50 @@ class Graduates extends CI_Model{
     return $query;
   }
 
-  public function getAllgrd()
+  public function getAllstaff()
   {
-    $query=$this->db->select('uoc_graduate.*,
+    $query=$this->db->select('uoc_staff.*,
                               ref_univ.UNIV_NAME_TH,
                               ref_prefix_name.FULLNAME,
                               ref_gender.GENDER_NAME,
-                              ref_fac.FAC_NAME,
-                              ref_province.PROVINCE_NAME_TH,
-                              ref_district.DISTRICT_NAME_TH,
                               ref_sub_district.SUB_DISTRICT_NAME_TH,
-                              ref_race.RACE_NAME,
+                              ref_nation.NATION_NAME_TH,
+                              ref_stafftype.STAFFTYPE_NAME,
+                              ref_time_contact.TIME_CONTACT_NAME,
+                              ref_budget.BUDGET_NAME,
+                              ref_substafftype.SUBSTAFFTYPE_NAME,
+                              ref_admin.ADMIN_NAME,
+                              ref_position.POSITION_NAME_TH,
+                              ref_fac.FAC_NAME,
+                              ref_special.ISCED_NAME,
                               ref_religion.RELIGION_NAME_TH,
-                              ref_nation.NATION_NAME_TH,'
+                              '
                             )
-                    ->from('uoc_graduate')
-                    ->join('ref_univ','ref_univ.UNIV_ID = uoc_graduate.UNIV_ID', 'left')
-                    ->join('ref_prefix_name','ref_prefix_name.PREFIX_NAME_ID = uoc_graduate.PREFIX_NAME_ID', 'left')
-                    ->join('ref_gender','ref_gender.GENDER_ID = uoc_graduate.GENDER_ID', 'left')
-                    ->join('ref_fac','ref_fac.FAC_ID = uoc_graduate.FAC_ID', 'left')
-                    ->join('ref_province','ref_province.PROVINCE_ID = uoc_graduate.PROVINCE_ID', 'left')
-                    ->join('ref_district','ref_district.DISTRICT_ID = uoc_graduate.DISTRICT_ID', 'left')
-                    ->join('ref_sub_district','ref_sub_district.SUB_DISTRICT_ID = uoc_graduate.SUB_DISTRICT_ID', 'left')
-                    ->join('ref_race','ref_race.RACE_ID = uoc_graduate.RACE_ID', 'left')
-                    ->join('ref_religion','ref_religion.RELIGION_ID = uoc_graduate.RELIGION_ID', 'left')
-                    ->join('ref_nation','ref_nation.NATION_ID = uoc_graduate.NATION_ID', 'left')
+                    ->from('uoc_staff')
+                    ->join('ref_univ','ref_univ.UNIV_ID = uoc_staff.UNIV_ID', 'left')
+                    ->join('ref_prefix_name','ref_prefix_name.PREFIX_NAME_ID = uoc_staff.PREFIX_NAME_ID', 'left')
+                    ->join('ref_gender','ref_gender.GENDER_ID = uoc_staff.GENDER_ID', 'left')
+                    //->join('ref_province','ref_province.PROVINCE_ID = uoc_staff.PROVINCE_ID', 'left')
+                    //->join('ref_district','ref_district.DISTRICT_ID = uoc_staff.DISTRICT_ID', 'left')
+                    ->join('ref_sub_district','ref_sub_district.SUB_DISTRICT_ID = uoc_staff.SUB_DISTRICT_ID', 'left')
+                    //->join('ref_race','ref_race.RACE_ID = uoc_staff.RACE_ID', 'left')
+                    ->join('ref_nation','ref_nation.NATION_ID = uoc_staff.NATION_ID', 'left')
+                    ->join('ref_stafftype','ref_stafftype.STAFFTYPE_ID = uoc_staff.STAFFTYPE_ID', 'left')
+                    ->join('ref_time_contact','ref_time_contact.TIME_CONTACT_ID = uoc_staff.TIME_CONTACT_ID', 'left')
+                    ->join('ref_budget','ref_budget.BUDGET_ID = uoc_staff.BUDGET_ID', 'left')
+                    ->join('ref_substafftype','ref_substafftype.SUBSTAFFTYPE_ID = uoc_staff.SUBSTAFFTYPE_ID', 'left')
+                    ->join('ref_admin','ref_admin.ADMIN_ID = uoc_staff.ADMIN_POSITION_ID', 'left')
+                    ->join('ref_position','ref_position.POSITION_ID = uoc_staff.POSITION_ID', 'left')
+                    ->join('ref_fac','ref_fac.FAC_ID = uoc_staff.DEPARTMENT_ID', 'left')
+                    ->join('ref_special','ref_special.ISCED_ID = uoc_staff.SPECIAL_NAME_ID', 'left')
+                    //->join('ref_special','ref_special.ISCED_ID = uoc_staff.TEACH_ISCED_ID', 'left')
+                    ->join('ref_religion','ref_religion.RELIGION_ID = uoc_staff.RELIGION_ID', 'left')
+
                     ->get();
     return $query;
   }
 
-  public function addGraduate()
+  public function addStaff()
   {
     $data=array(
       'year'=>$this->input->post('year'),
@@ -155,7 +169,7 @@ class Graduates extends CI_Model{
       'std_lname_en'=>$this->input->post('std_lname_en'),
 
     );
-    $this->db->insert('uoc_graduate', $data);
+    $this->db->insert('uoc_staff', $data);
   }
 
 }

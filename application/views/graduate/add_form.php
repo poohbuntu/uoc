@@ -4,8 +4,32 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
 
 		<title>บันทึกข้อมูลผู้สำเร็จการศึกษา</title>
+<!--
+		<script type="text/javascript">
+			function checkID(id)
+			{
+				if(id.length != 13)
+					return false;
+				for(i=0, sum=0; i < 12; i++)
+				sum += parseFloat(id.charAt(i))*(13-i);
+				if((11-sum%11)%10!=parseFloat(id.charAt(12)))
+					return false;
+				return true;
+			}
+
+			function checkForm()
+			{
+				if(checkID(document.form.citizen_id.value))
+					alert('รหัสประชาชนไม่ถูกต้อง');
+				else
+					alert('รหัสประชาชนถูกต้อง เชิญผ่านได้');
+			}
+		</script>
+-->
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -18,7 +42,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-8 col-md-offset-2">
-					<form class="" action="http://localhost/uoc/index.php/graduate/add" method="post" autocomplete="off">
+					<form id="formid" action="http://localhost/uoc/index.php/graduate/add" method="post" autocomplete="off">
 						<fieldset>
 
 							<div class="form-group">
@@ -41,7 +65,7 @@
 
 							<div class="form-group">
 								<label for="citizen_id">รหัสประจำตัวประชาชน</label>
-								<input class="form-control" type="text" name="citizen_id" value="" maxlength="13" placeholder="รหัสประจำตัวประชาชน" required autocomplete="off">
+								<input class="form-control" type="text" name="citizen_id" id="citizen_id" value="" maxlength="13" placeholder="รหัสประจำตัวประชาชน" required autocomplete="off">
 							</div>
 
 							<div class="form-group">
@@ -52,6 +76,7 @@
 							<div class="form-group">
 								<label for="prefix_name_id">คำนำหน้าชื่อ</label>
 								<select class="form-control" name="prefix_name_id" required>
+									<option value="">เลือก</option>
 								  <option value="003">นาย</option>
 								  <option value="004">นางสาว</option>
 									<option value="005">นาง</option>
@@ -74,18 +99,18 @@
 							</div>
 
 							<div class="form-group">
-								<label for="std_fname">First Name</label>
-								<input class="form-control" type="text" name="eng_fname" value="" maxlength="50" placeholder="ชื่อนักศึกษา ภาษาอังกฤษ" required autocomplete="off">
+								<label for="std_fname_en">First Name</label>
+								<input class="form-control" type="text" name="std_fname_en" value="" maxlength="50" placeholder="ชื่อนักศึกษา ภาษาอังกฤษ" required autocomplete="off" style="text-transform: lowercase;">
 							</div>
 
 							<div class="form-group">
-								<label for="std_mname">Middle Name</label>
-								<input class="form-control" type="text" name="eng_mname" value="-" maxlength="80" placeholder="ชื่อกลาง(ถ้ามี) ภาษาอังกฤษ" autocomplete="off">
+								<label for="std_mname_en">Middle Name</label>
+								<input class="form-control" type="text" name="std_mname_en" value="-" maxlength="80" placeholder="ชื่อกลาง(ถ้ามี) ภาษาอังกฤษ" autocomplete="off" style="text-transform: lowercase;">
 							</div>
 
 							<div class="form-group">
-								<label for="std_lname">Last Name</label>
-								<input class="form-control" type="text" name="eng_lname" value="" maxlength="50" placeholder="นามสกุล ภาษาอังกฤษ" required autocomplete="off">
+								<label for="std_lname_en">Last Name</label>
+								<input class="form-control" type="text" name="std_lname_en" value="" maxlength="50" placeholder="นามสกุล ภาษาอังกฤษ" required autocomplete="off" style="text-transform: lowercase;">
 							</div>
 
 							<div class="form-group">
@@ -189,24 +214,19 @@
 							<div class="form-group">
 								<label for="race_id">เชื้อชาติ</label>
 								<select class="form-control" name="race_id" required>
-								  <option value="099">ไทย</option>
-								  <option value="994">อื่นๆ</option>
+									<?php foreach($races->result() as $race){ ?>
+	        					<option value="<?php echo $race->RACE_ID; ?>"><?php echo $race->RACE_NAME; ?></option>
+	    						<?php } ?>
 								</select>
 							</div>
 
 							<div class="form-group">
 								<label for="religion_id">ศาสนา</label>
 								<select class="form-control" name="religion_id" required>
-								  <option value="00">ไม่นับถือศาสนาใด</option>
-								  <option value="01">ศาสนาพุทธ</option>
-									<option value="02">ศาสนาอิสลาม</option>
-									<option value="03">ศาสนาฮินดู</option>
-									<option value="04">ศาสนายิว</option>
-									<option value="05">ศาสนาซิกซ์</option>
-									<option value="06">ศาสนาคริสต์</option>
-									<option value="07">ศาสนาเชน</option>
-									<option value="08">ศาสนาโซโรอัสเตอร์</option>
-									<option value="09">ศาสนาบาไฮ</option>
+									<option value="">เลือก</option>
+									<?php foreach($religions->result() as $religion){ ?>
+	        					<option value="<?php echo $religion->RELIGION_ID; ?>"><?php echo $religion->RELIGION_NAME_TH; ?></option>
+	    						<?php } ?>
 								</select>
 							</div>
 
@@ -233,8 +253,9 @@
 							<div class="form-group">
 								<label for="nation_id">สัญชาติ</label>
 								<select class="form-control" name="nation_id" required>
-								  <option value="TH">THAILAND</option>
-								  <option value="XX">ไม่มีสัญชาติ</option>
+									<?php foreach($nations->result() as $nation){ ?>
+	        					<option value="<?php echo $nation->NATION_ID; ?>"><?php echo $nation->NATION_NAME_TH; ?></option>
+	    						<?php } ?>
 								</select>
 							</div>
 
@@ -261,6 +282,44 @@
 			</div>
 		</div>
 	<script type="text/javascript">
+
+		$.validator.addMethod(
+	    "checkIDCard",
+	    function(value, element) {
+	        var pid = value;
+	        pid = pid.toString().replace(/\D/g,'');
+	        if(pid.length == 13){
+	            var sum = 0;
+	            for(var i = 0; i < pid.length-1; i++){
+	            sum += Number(pid.charAt(i))*(pid.length-i);
+	            }
+	            var last_digit = (11 - sum % 11) % 10;
+	            $(element).val(pid);
+	            return pid.charAt(12) == last_digit;
+	       }else{
+	            return false;
+	      }
+			},
+			"รหัสบัตรประชาชนไม่ถูกต้อง"
+		);
+
+		$("#formid").validate({
+		  rules: {
+		    citizen_id: {
+		        required: true,
+		        minlength: 13,
+		        checkIDCard: true
+		    },
+		    messages: {
+		        citizen_id: {
+		            required: "รหัสบัตรประชาชนไม่ถูกต้อง",
+		            minlength: "รหัสบัตรประชาชนต้องมี 13 หลัก",
+		            checkIDCard : "รหัสบัตรประชาชนไม่ถูกต้อง"
+		        }
+		    }
+		  }
+		});
+
 	  $(function() {
 	      $('body').on('change','#province',function(){
 	          $.ajax({
