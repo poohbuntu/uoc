@@ -66,15 +66,28 @@
             echo '<td>'.$row->DATE_START_THIS_U.'</td>';
             echo '<td>'.$row->ISCED_NAME.'</td>';
             echo '<td>'.$row->TEACH_ISCED_ID.'</td>';
+            echo '<td>'.$row->TEACH_SUBJECTGROUP_ID.'</td>';
+            echo '<td>'.$row->GRAD_LEV_ID.'</td>';
+            echo '<td>'.$row->GRAD_CURR.'</td>';
+            echo '<td>'.$row->GRAD_ISCED_ID.'</td>';
+            echo '<td>'.$row->GRAD_PROG.'</td>';
+            echo '<td>'.$row->GRAD_UNIV.'</td>';
+            echo '<td>'.$row->GRAD_COUNTRY_ID.'</td>';
+            echo '<td>'.$row->DEFORM_NAME.'</td>';
+            echo '<td>'.$row->SIT_NO.'</td>';
+            echo '<td>'.$row->SALARY.'</td>';
+            echo '<td>'.$row->POSITION_SALARY.'</td>';
             echo '<td>'.$row->RELIGION_NAME_TH.'</td>';
-            //echo '<td>'.$row->EMAIL.'</td>';
-            //echo '<td>'.$row->DATEGRADUATION.'</td>';
-            //echo '<td>'.$row->CURR_ID.'</td>';
-            //echo '<td>'.$row->DEGREE_NUM.'</td>';
-
-            //echo '<td>'.$row->PASSPORT_NUMBER.'</td>';
+            echo '<td>'.$row->MOVEMENT_TYPE_NAME.'</td>';
+            echo '<td>'.$row->MOVEMENT_DATE.'</td>';
+            echo '<td>'.$row->DECORATION.'</td>';
+            echo '<td>'.$row->RESULT1.'</td>';
+            echo '<td>'.$row->PERCENT_SALARY1.'</td>';
+            echo '<td>'.$row->RESULT2.'</td>';
+            echo '<td>'.$row->PERCENT_SALARY2.'</td>';
             echo '<td>'.$row->PASSPORT_STARTDATE.'</td>';
             echo '<td>'.$row->PASSPORT_ENDDATE.'</td>';
+            echo '<td>'.$row->PASSPORT_STATUS.'</td>';
             echo '</tr>';
             $n++;
           }

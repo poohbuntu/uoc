@@ -97,7 +97,9 @@ class Staffs extends CI_Model{
                               ref_position.POSITION_NAME_TH,
                               ref_fac.FAC_NAME,
                               ref_special.ISCED_NAME,
+                              ref_deform.DEFORM_NAME,
                               ref_religion.RELIGION_NAME_TH,
+                              ref_movement_type.MOVEMENT_TYPE_NAME,
                               '
                             )
                     ->from('uoc_staff')
@@ -118,7 +120,9 @@ class Staffs extends CI_Model{
                     ->join('ref_fac','ref_fac.FAC_ID = uoc_staff.DEPARTMENT_ID', 'left')
                     ->join('ref_special','ref_special.ISCED_ID = uoc_staff.SPECIAL_NAME_ID', 'left')
                     //->join('ref_special','ref_special.ISCED_ID = uoc_staff.TEACH_ISCED_ID', 'left')
+                    ->join('ref_deform','ref_deform.DEFORM_ID = uoc_staff.DEFORM_ID', 'left')
                     ->join('ref_religion','ref_religion.RELIGION_ID = uoc_staff.RELIGION_ID', 'left')
+                    ->join('ref_movement_type','ref_movement_type.MOVEMENT_TYPE_ID = uoc_staff.MOVEMENT_TYPE_ID', 'left')
 
                     ->get();
     return $query;
